@@ -1,0 +1,248 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eef2ff;
+}
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+.page {
+  display: none;
+  position: fixed;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.page.active {
+  display: flex;
+}
+
+/* =========================
+   LOGIN / HOME BACKGROUNDS
+========================= */
+#loginPage {
+  background: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f") center/cover no-repeat;
+}
+
+#homePage {
+  background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") center/cover no-repeat;
+}
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+/* =========================
+   GLASS BOXES
+========================= */
+.login-box,
+.home-box,
+.container {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  width: 320px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   LOGO (NEW ADD)
+========================= */
+
+/* OPTION 1 SIMPLE LOGO */
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: #1e3a8a;
+  margin-bottom: 10px;
+}
+
+/* OPTION 3 APP STYLE LOGO */
+.app-logo {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.circle {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #4f46e5, #22c55e);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+}
+
+.app-logo h1 {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  background: #ffffff;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.03);
+  background: #f3f4f6;
+}
+
+/* =========================
+   MENU
+========================= */
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-card.big {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+/* =========================
+   SUMMARY CARDS
+========================= */
+.summary-cards {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.card {
+  flex: 1;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   TABS
+========================= */
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.tab {
+  display: none;
+}
+
+.active-tab {
+  display: block;
+}
+
+/* =========================
+   CHARTS
+========================= */
+canvas {
+  width: 100% !important;
+  margin-top: 10px;
+}
+
+/* =========================
+   CALCULATOR
+========================= */
+.calc {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  width: 320px;
+  text-align: center;
+}
+
+#display {
+  font-size: 28px;
+  margin-bottom: 10px;
+}/* =========================
+   SPLASH SCREEN
+========================= */
+.splash {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #4f46e5, #22c55e);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeOut 0.5s ease forwards;
+  animation-delay: 2.5s;
+}
+
+.splash-logo {
+  text-align: center;
+  color: white;
+  animation: popIn 1s ease;
+}
+
+.splash-logo .circle {
+  width: 90px;
+  height: 90px;
+  background: white;
+  color: #4f46e5;
+  font-size: 28px;
+  font-weight: bold;
+  margin: auto;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ANIMATIONS */
+@keyframes popIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

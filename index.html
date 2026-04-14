@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<hea<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#4f46e5">d>
+  <title>VitalCalc</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- 🔥 SPLASH SCREEN -->
+<div id="splashScreen" class="splash">
+  <div class="splash-logo">
+    <div class="circle">VC</div>
+    <h1>VitalCalc</h1>
+    <p>Your Smart Health Companion</p>
+  </div>
+</div><canvas id="particles"></canvas>
+<body>
+
+<!-- 🔐 LOGIN -->
+<div id="loginPage" class="page active">
+  <div class="login-box">
+
+    <h1>VitalCalc</h<div class="logo">
+  💙 VitalCalc
+</div>1>
+    <p class="subtitle">Your Smart Health Companion</p>
+
+    <input id="email" placeholder="Email / Username">
+    <input id="password" type="password" placeholder="Password">
+
+    <div class="login-buttons">
+      <button onclick="createAccount()">Create Account</button>
+      <button onclick="login()">Login</button>
+    </div>
+
+    <div id="profileList"></div>
+
+  </div>
+</div>
+
+<!-- 🏠 HOME -->
+<div id="homePage" class="page">
+  <div class="home-box">
+
+    <h1>VitalCalc</h1>
+    <p class="subtitle">Fitness • BMI • TDEE • AI Coach</p>
+
+    <button onclick="goToMenu()">Start</button>
+  </div>
+</div>
+
+<!-- 📋 MENU -->
+<div id="menuPage" class="page">
+  <div class="menu-container">
+
+    <div class="menu-card big" onclick="openBMI()">⚖️ BMI Calculator</div>
+    <div class="menu-card big" onclick="openTDEE()">🔥 TDEE Calculator</div>
+    <div class="menu-card big" onclick="openSimple()">🧮 Calculator</div>
+    <div class="menu-card big" onclick="openProgress()">📊 Progress Dashboard</div>
+
+  </div>
+</div>
+
+<!-- ⚖️ BMI -->
+<div id="bmiPage" class="page">
+  <div class="container">
+
+    <h2>BMI Calculator</h2>
+
+    <img class="page-img" src="https://images.unsplash.com/photo-1599058917212-d750089bc07e" />
+
+    <input id="weight" placeholder="Weight (kg)">
+    <input id="height" placeholder="Height (cm)">
+
+    <button onclick="calculateBMI()">Calculate</button>
+
+    <h3 id="result"></h3>
+    <h4 id="category"></h4>
+
+    <button class="chart-btn">View BMI Chart</button>
+
+    <button onclick="goToMenu()">Back</button>
+
+  </div>
+</div>
+
+<!-- 🔥 TDEE -->
+<div id="tdeePage" class="page">
+  <div class="container">
+
+    <h2>TDEE Calculator</h2>
+
+    <img class="page-img" src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74" />
+
+    <input id="age" placeholder="Age">
+    <input id="tweight" placeholder="Weight">
+    <input id="theight" placeholder="Height">
+
+    <select id="activity">
+      <option value="1.2">Sedentary</option>
+      <option value="1.375">Light</option>
+      <option value="1.55">Moderate</option>
+      <option value="1.725">Active</option>
+    </select>
+
+    <button onclick="calculateTDEE()">Calculate</button>
+
+    <h3 id="tdeeResult"></h3>
+
+    <button onclick="goToMenu()">Back</button>
+
+  </div>
+</div>
+
+<!-- 🧮 CALCULATOR -->
+<div id="simplePage" class="page">
+  <div class="calc">
+
+    <div class="screen"><div id="display">0</div></div>
+
+    <div class="buttons">
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button onclick="append('+')">+</button>
+
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button onclick="append('-')">-</button>
+
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="calculate()">=</button>
+
+      <button onclick="append('0')">0</button>
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="deleteLast()">⌫</button>
+    </div>
+
+    <button onclick="goToMenu()">Back</button>
+
+  </div>
+</div>
+
+<!-- 📊 PROGRESS -->
+<div id="progressPage" class="page">
+  <div class="container">
+
+    <h2>Progress Dashboard</h2>
+
+    <div class="tabs">
+      <button onclick="openTab('charts')">📊 Charts</button>
+      <button onclick="openTab('coach')">🧠 Coach</button>
+      <button onclick="openTab('diet')">🍎 Diet</button>
+    </div>
+
+    <!-- CHARTS -->
+    <div id="tab-charts" class="tab active-tab">
+      <canvas id="bmiChart"></canvas>
+      <canvas id="tdeeChart"></canvas>
+    </div>
+
+    <!-- COACH -->
+    <div id="tab-coach" class="tab">
+      <img class="small-img" src="https://images.unsplash.com/photo-1556741533-f6acd647d2fb" />
+      <div id="aiCoachBox"></div>
+      <button onclick="showCoach()">Get AI Advice</button>
+    </div>
+
+    <!-- DIET -->
+    <div id="tab-diet" class="tab">
+      <img class="small-img" src="https://images.unsplash.com/photo-1498837167922-ddd27525d352" />
+
+      <select id="goalSelect">
+        <option value="lose">Lose Weight</option>
+        <option value="maintain">Maintain</option>
+        <option value="gain">Gain Muscle</option>
+      </select>
+
+      <button onclick="showDiet()">Generate Diet</button>
+
+      <pre id="dietBox"></pre>
+    </div>
+
+    <button onclick="goToMenu()">Back</button>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body><div class="summary-cards">
+
+  <div class="card">
+    <h3>Latest BMI</h3>
+    <p id="latestBMI">--</p>
+  </div>
+
+  <div class="card">
+    <h3>Latest TDEE</h3>
+    <p id="latestTDEE">--</p>
+  </div>
+
+  <div class="card">
+    <h3>Status</h3>
+    <p id="healthStatus">--</p>
+  </div>
+
+</div>
+</html><div id="tab-charts" class="tab active-tab"></div><div class="logo-box">
+  <div class="logo-icon">⚡</div>
+  <div class="logo-text">VitalCalc</div>
+</div>
